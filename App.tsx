@@ -6,6 +6,7 @@ import About from './components/Sections/About';
 import Methodology from './components/Sections/Methodology';
 import Testimonials from './components/Sections/Testimonials';
 import Contact from './components/Sections/Contact';
+import Newsletter from './components/Sections/Newsletter';
 import Footer from './components/Layout/Footer';
 import Background3D from './components/UI/Background3D';
 
@@ -42,6 +43,7 @@ const App: React.FC = () => {
         <Methodology />
         <Testimonials />
         <Contact />
+        <Newsletter />
       </main>
 
       <Footer />

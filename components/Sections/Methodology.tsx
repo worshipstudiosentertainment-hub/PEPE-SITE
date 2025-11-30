@@ -29,17 +29,17 @@ const Methodology: React.FC = () => {
       {/* Noise Texture for Film Grain effect */}
       <div className="absolute inset-0 opacity-[0.05] pointer-events-none z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")` }}></div>
 
-      <div className="max-w-[90rem] mx-auto px-6 relative z-10 w-full py-24 md:py-0">
+      <div className="max-w-[90rem] mx-auto px-6 relative z-10 w-full py-20 md:py-0">
         
         {/* Title Section - Located in the 'Dark' zone */}
-        <div className="mb-20 md:mb-32 text-center md:text-left md:pl-12">
+        <div className="mb-12 md:mb-32 text-center md:text-left md:pl-12">
            <Reveal>
-             <span className="block text-brand-gold text-[9px] uppercase tracking-[0.6em] font-bold font-sans mb-8 opacity-70 ml-12">
+             <span className="block text-brand-gold text-[8px] md:text-[9px] uppercase tracking-[0.4em] md:tracking-[0.6em] font-bold font-sans mb-4 md:mb-8 opacity-70 md:ml-12">
                 La Ruta
               </span>
-            <h2 className="flex flex-col text-5xl md:text-7xl lg:text-[6rem] font-display font-black tracking-tighter uppercase leading-[0.8] text-white gap-2">
+            <h2 className="flex flex-col text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-display font-black tracking-tighter uppercase leading-[0.9] md:leading-[0.8] text-white gap-1 md:gap-2">
               <span className="transform -translate-x-0 md:-translate-x-0 ml-0 md:ml-12">El</span>
-              <span className="font-serif font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-white/50 ml-12 md:ml-32">Proceso</span>
+              <span className="font-serif font-normal italic text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-white/50 ml-6 md:ml-32">Proceso</span>
             </h2>
            </Reveal>
         </div>
@@ -59,15 +59,16 @@ const Methodology: React.FC = () => {
                 <div className={`
                     group relative h-full flex flex-col justify-between p-8 md:p-12 lg:p-16 
                     border-l border-white/5 md:border-l-0 md:first:border-l-0
-                    transition-all duration-1000
-                    ${isDarkPhase ? 'md:border-r border-white/10 hover:bg-white/[0.03]' : ''}
-                    ${isMidPhase ? 'md:border-r border-white/10 hover:bg-white/[0.05]' : ''}
+                    border-b md:border-b-0 border-white/5 md:border-transparent
+                    transition-all duration-1000 min-h-[300px] md:min-h-[400px]
+                    ${isDarkPhase ? 'md:border-r hover:bg-white/[0.03]' : ''}
+                    ${isMidPhase ? 'md:border-r hover:bg-white/[0.05]' : ''}
                     ${isLightPhase ? 'hover:bg-black/[0.02]' : ''}
                 `}>
                   
                   {/* Decorative number */}
                   <div className={`
-                    absolute top-4 right-6 text-[4rem] md:text-[5rem] lg:text-[7rem] font-display font-bold leading-none select-none transition-all duration-700
+                    absolute top-4 right-6 text-[3rem] md:text-[5rem] lg:text-[7rem] font-display font-bold leading-none select-none transition-all duration-700
                     ${isDarkPhase ? 'text-white/[0.05] group-hover:text-white/[0.1]' : ''}
                     ${isMidPhase ? 'text-white/[0.1] group-hover:text-white/[0.2]' : ''}
                     ${isLightPhase ? 'text-black/[0.05] group-hover:text-brand-dark/10' : ''}
@@ -76,18 +77,18 @@ const Methodology: React.FC = () => {
                   </div>
 
                   {/* Marker */}
-                  <div className={`w-1.5 h-1.5 rounded-full mb-10 md:mb-16 ${isLightPhase ? 'bg-brand-dark' : 'bg-brand-gold'} shadow-[0_0_15px_currentColor]`}></div>
+                  <div className={`w-1.5 h-1.5 rounded-full mb-8 md:mb-16 ${isLightPhase ? 'bg-brand-dark' : 'bg-brand-gold'} shadow-[0_0_15px_currentColor]`}></div>
 
                   <div className="relative z-10">
                     <h3 className={`
-                        text-2xl md:text-3xl font-display font-bold mb-6 transition-colors duration-500
+                        text-xl md:text-3xl font-display font-bold mb-4 md:mb-6 transition-colors duration-500
                         ${isLightPhase ? 'text-brand-dark group-hover:text-brand-emerald' : 'text-white group-hover:text-brand-gold'}
                     `}>
                         {step.title}
                     </h3>
                     
                     <p className={`
-                        font-sans font-light text-base md:text-lg leading-relaxed max-w-xs
+                        font-sans font-light text-sm md:text-lg leading-relaxed max-w-xs
                         ${isDarkPhase ? 'text-gray-400' : ''}
                         ${isMidPhase ? 'text-gray-300' : ''}
                         ${isLightPhase ? 'text-gray-600' : ''}

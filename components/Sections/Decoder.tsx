@@ -51,31 +51,31 @@ const Decoder: React.FC = () => {
   const whatsappLink = `https://wa.me/523331155895?text=Hola%20Pepe,%20el%20decodificador%20me%20dijo:%20${encodeURIComponent(insight)}%20Quiero%20profundizar%20en%20mi%20s%C3%ADntoma:%20${encodeURIComponent(symptom)}`;
 
   return (
-    <section id="decodificador" className="py-24 md:py-32 relative z-20 overflow-hidden">
+    <section id="decodificador" className="py-20 md:py-32 relative z-20 overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-brand-emerald/5 rounded-full blur-[100px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-brand-emerald/5 rounded-full blur-[80px] md:blur-[100px] pointer-events-none z-0" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <Reveal className="w-full">
-            <div className="bg-white/40 backdrop-blur-2xl border border-white/60 p-8 md:p-12 lg:p-16 rounded-[2.5rem] relative overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] group/card hover:shadow-[0_30px_80px_-15px_rgba(0,255,157,0.1)] transition-all duration-700">
+            <div className="bg-white/40 backdrop-blur-2xl border border-white/60 p-6 md:p-12 lg:p-16 rounded-[2rem] md:rounded-[2.5rem] relative overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] group/card hover:shadow-[0_30px_80px_-15px_rgba(0,255,157,0.1)] transition-all duration-700">
             
             {/* Header with Indented Typography */}
-            <div className="flex flex-col items-center text-center mb-12">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-brand-dark/5 bg-white/40 text-[9px] font-bold uppercase tracking-[0.25em] font-sans mb-8 text-gray-600 backdrop-blur-sm">
+            <div className="flex flex-col items-center text-center mb-8 md:mb-12">
+                <div className="inline-flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-brand-dark/5 bg-white/40 text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] md:tracking-[0.25em] font-sans mb-6 md:mb-8 text-gray-600 backdrop-blur-sm">
                     <BrainCircuit size={12} className="text-brand-neon" />
                     <span>Inteligencia Biológica</span>
                 </div>
                 
-                <h3 className="flex flex-col items-center justify-center gap-2">
-                    <span className="text-xl md:text-3xl font-display font-black text-brand-dark tracking-tighter uppercase transform -translate-x-4 md:-translate-x-8">
+                <h3 className="flex flex-col items-center justify-center gap-1 md:gap-2">
+                    <span className="text-xl sm:text-2xl md:text-3xl font-display font-black text-brand-dark tracking-tighter uppercase transform -translate-x-4 md:-translate-x-8">
                         Decodificador
                     </span>
-                    <span className="font-serif italic font-light text-lg md:text-2xl text-brand-emerald/60 transform translate-x-4 md:translate-x-8">
+                    <span className="font-serif italic font-light text-lg sm:text-xl md:text-2xl text-brand-emerald/60 transform translate-x-4 md:translate-x-8">
                         ai
                     </span>
                 </h3>
                 
-                <p className="mt-8 text-gray-600 font-sans font-light text-sm md:text-base max-w-md leading-relaxed">
+                <p className="mt-6 md:mt-8 text-gray-600 font-sans font-light text-sm md:text-base max-w-md leading-relaxed px-2">
                     El cuerpo manifiesta lo que la consciencia ignora. <br className="hidden md:block"/> Escribe tu síntoma para revelar su sentido biológico.
                 </p>
             </div>
@@ -90,13 +90,13 @@ const Decoder: React.FC = () => {
                         value={symptom}
                         onChange={(e) => setSymptom(e.target.value)}
                         onKeyPress={handleKeyPress}
-                        placeholder="Ej: Migraña, Ansiedad, Gastritis..." 
-                        className="w-full bg-transparent px-8 py-4 md:py-5 text-lg md:text-xl text-brand-dark placeholder-gray-300 focus:outline-none text-center font-display font-bold tracking-tight"
+                        placeholder="Ej: Migraña, Ansiedad..." 
+                        className="w-full bg-transparent px-6 md:px-8 py-3.5 md:py-5 text-base md:text-xl text-brand-dark placeholder-gray-300 focus:outline-none text-center font-display font-bold tracking-tight"
                         disabled={loading}
                     />
 
                     {/* Action Button */}
-                    <div className="absolute right-2 top-2 bottom-2">
+                    <div className="absolute right-1.5 top-1.5 bottom-1.5 md:right-2 md:top-2 md:bottom-2">
                          {showResult ? (
                              <button 
                                 onClick={reset}
@@ -109,10 +109,10 @@ const Decoder: React.FC = () => {
                             <button 
                                 onClick={handleAnalyze}
                                 disabled={loading}
-                                className={`h-full px-6 md:px-8 rounded-full bg-brand-dark text-white text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 transition-all duration-300 ${loading ? 'opacity-80 cursor-wait' : 'hover:bg-brand-emerald hover:scale-105'}`}
+                                className={`h-full px-4 md:px-8 rounded-full bg-brand-dark text-white text-[9px] font-bold uppercase tracking-[0.2em] flex items-center gap-2 transition-all duration-300 ${loading ? 'opacity-80 cursor-wait' : 'hover:bg-brand-emerald hover:scale-105'}`}
                             >
-                                <span className="hidden md:inline">{loading ? 'Procesando' : 'Analizar'}</span>
-                                <span className="md:hidden">{loading ? '...' : <ArrowRight size={14} />}</span>
+                                <span className="hidden sm:inline">{loading ? 'Procesando' : 'Analizar'}</span>
+                                <span className="sm:hidden">{loading ? '...' : <ArrowRight size={14} />}</span>
                             </button>
                          )}
                     </div>
@@ -123,7 +123,7 @@ const Decoder: React.FC = () => {
                     )}
                 </div>
                 {error && (
-                    <p className="absolute -bottom-8 left-0 w-full text-center text-red-500 text-[10px] font-bold uppercase tracking-widest animate-pulse">
+                    <p className="absolute -bottom-8 left-0 w-full text-center text-red-500 text-[9px] md:text-[10px] font-bold uppercase tracking-widest animate-pulse">
                         Ingresa un síntoma válido
                     </p>
                 )}
@@ -131,26 +131,26 @@ const Decoder: React.FC = () => {
 
             {/* Result Section */}
             {showResult && (
-                <div className="mt-12 w-full max-w-2xl mx-auto animate-[fadeIn_0.8s_ease-out_forwards]">
-                    <div className="relative bg-white/80 backdrop-blur-md rounded-[2rem] p-8 border border-brand-gold/20 shadow-xl text-center overflow-hidden">
-                        <div className="absolute top-4 left-6 text-5xl font-serif text-brand-gold/10 leading-none">“</div>
+                <div className="mt-8 md:mt-12 w-full max-w-2xl mx-auto animate-[fadeIn_0.8s_ease-out_forwards]">
+                    <div className="relative bg-white/80 backdrop-blur-md rounded-[1.5rem] md:rounded-[2rem] p-6 md:p-8 border border-brand-gold/20 shadow-xl text-center overflow-hidden">
+                        <div className="absolute top-4 left-6 text-4xl md:text-5xl font-serif text-brand-gold/10 leading-none">“</div>
                         
                         <div className="relative z-10">
                             <div className="w-8 h-8 bg-brand-gold/10 rounded-full flex items-center justify-center mx-auto mb-4 text-brand-gold">
                                 <Sparkles size={14} />
                             </div>
-                            <p className="text-lg md:text-xl text-brand-emerald font-serif italic leading-relaxed">
+                            <p className="text-base md:text-xl text-brand-emerald font-serif italic leading-relaxed">
                                 {insight}
                             </p>
                         </div>
                     </div>
 
-                    <div className="mt-8 text-center">
+                    <div className="mt-6 md:mt-8 text-center">
                         <a 
                             href={whatsappLink}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-black text-brand-neon text-[9px] font-bold uppercase tracking-[0.2em] border border-brand-neon hover:bg-brand-neon hover:text-black hover:shadow-[0_0_30px_rgba(0,255,157,0.4)] transition-all duration-300 transform hover:-translate-y-1"
+                            className="inline-flex items-center gap-2 md:gap-3 px-6 md:px-8 py-3 md:py-4 rounded-full bg-black text-brand-neon text-[8px] md:text-[9px] font-bold uppercase tracking-[0.2em] border border-brand-neon hover:bg-brand-neon hover:text-black hover:shadow-[0_0_30px_rgba(0,255,157,0.4)] transition-all duration-300 transform hover:-translate-y-1"
                         >
                             <span>Profundizar en Sesión</span>
                             <ArrowRight size={12} />
